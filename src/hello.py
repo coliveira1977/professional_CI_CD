@@ -1,4 +1,3 @@
-```python src/hello.py
 """
 Módulo que encapsula a lógica de saudação.
 
@@ -27,4 +26,3 @@ def get_greeting(name: str | None = None) -> str:
     if name:
         return f"Hello, {name}! – {now}"
     return f"Hello, Mundo! – {now}"
-```

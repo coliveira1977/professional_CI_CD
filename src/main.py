@@ -1,4 +1,3 @@
-```python src/main.py
 """
 Ponto de entrada para a aplicação Hello World.
 
