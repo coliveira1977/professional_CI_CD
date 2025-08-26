@@ -7,9 +7,14 @@ extend, or replace without touching the application entry point.
 
 from datetime import datetime
 
-def get_greeting() -> str:
+def get_greeting(name: str | None = None) -> str:
     """
     Return a professional “Hello World” message with a timestamp.
+
+    Parameters
+    ----------
+    name : str, optional
+        The name to include in the greeting.
 
     Returns
     -------
@@ -17,4 +22,6 @@ def get_greeting() -> str:
         A greeting string that includes the current UTC time.
     """
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    if name:
+        return f"Hello, {name}! – {now}"
     return f"Hello, World! – {now}"

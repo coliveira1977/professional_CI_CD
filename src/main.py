@@ -9,6 +9,7 @@ This module demonstrates a clean, professional structure:
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -23,7 +24,7 @@ def main(argv: list[str] | None = None) -> int:
 
     Parameters
     ----------
-    argv : list[str] or None, optional
+    argv : list[str] | None, optional
         Command‑line arguments. If omitted, ``sys.argv`` is used.
 
     Returns
@@ -31,10 +32,11 @@ def main(argv: list[str] | None = None) -> int:
     int
         Exit status (0 for success).
     """
-    args = argv if argv is not None else sys.argv[1:]
-    # Aqui você pode processar argumentos futuros com argparse,
-    # mas para este exemplo simples apenas exibe a mensagem.
-    message = get_greeting()
+    parser = argparse.ArgumentParser(description="Prints a greeting message.")
+    parser.add_argument("--name", type=str, help="The name to include in the greeting message.", default="World")
+    args = parser.parse_args(argv)
+
+    message = get_greeting(name=args.name)
     print(message)
     return 0
 
