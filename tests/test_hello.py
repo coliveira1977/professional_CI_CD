@@ -1,4 +1,3 @@
-```python tests/test_hello.py
 # tests/test_hello.py
 import unittest
 from src.hello import get_greeting
@@ -9,12 +8,12 @@ class TestHello(unittest.TestCase):
     def test_get_greeting(self):
         """
         Deve retornar uma string no formato:
-            "Hello, World! – <timestamp>"
+            "Hello, Mundo! – <timestamp>"
         Onde <timestamp> é o horário UTC atual.
         """
         msg = get_greeting()
         # 1. Verifica prefixo
-        self.assertTrue(msg.startswith("Hello, World! – "))
+        self.assertTrue(msg.startswith("Hello, Mundo! – "))
         # 2. Separa em partes e garante que há um timestamp não vazio
         parts = msg.split("–")
         self.assertEqual(len(parts), 2)
@@ -36,4 +35,3 @@ class TestHello(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-```
